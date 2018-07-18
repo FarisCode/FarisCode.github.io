@@ -70,6 +70,9 @@ body {
       line-height: 84px;
       font-weight: 700;
       font-family: "Poppins", sans-serif; }
+      .container .header-bottom h1 span {
+        color: #ffde00;
+        font-size: 1.2em; }
     .container .header-bottom .keys {
       text-transform: uppercase;
       font-size: 1.1em; }

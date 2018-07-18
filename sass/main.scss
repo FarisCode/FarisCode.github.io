@@ -73,6 +73,10 @@ body {
                 line-height: 84px;
                 font-weight: 700;
                 font-family: $headingFont;
+                span{
+                    color: #ffde00;
+                    font-size: 1.2em;
+                }
             }
             .keys{
                 text-transform: uppercase;
