@@ -103,7 +103,24 @@ body {
       .container .header-bottom a:hover {
         color: #eee;
         background-color: #6a4d8a; }
+      .container .header-bottom a:active {
+        background-color: #9d83ba; }
+.container a.scroll[href="#hhh"] {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  opacity: 0; }
+  .container a.scroll[href="#hhh"] .topBtn {
+    display: inline-block;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background: url(../img/up.png) no-repeat center;
+    background-size: contain; }
 .container .about {
+  opacity: 0;
+  transition: 0.8s;
   height: 480px;
   width: 100%;
   padding: 65px 0 85px 0;
@@ -138,5 +155,10 @@ body {
 .container .footer {
   height: 284px;
   width: 100%; }
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    display: none; } }
 
 /*# sourceMappingURL=main.css.map */
