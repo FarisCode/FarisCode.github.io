@@ -1,4 +1,4 @@
-
+var flag = 0;
 //for parallax effect
 function isInViewport(node) {
     var rect = node.getBoundingClientRect()
@@ -22,7 +22,7 @@ $(window).scroll(function () {
         if (visible) {
             var diff = scrolled - initY
             var ratio = Math.round((diff / height) * 100)
-            $(this).css('background-position', 'center ' + parseInt(-(ratio * 1.5)) + 'px')
+            $(this).css('background-position', 'initial ' + parseInt(-(ratio * 1.5)) + 'px')
         }
     })
 })
@@ -36,20 +36,14 @@ $(function () {
     });
 });
 
-//for about section progressbars
-$('#progressbar1').LineProgressbar({
-    percentage: 25,
-    fillBackgroundColor: '#9b59b6'
-});
-
-//custom
+//waypoints
 var appear = new Waypoint({
     element: document.getElementById('about'),
     handler: function () {
         var temp = document.getElementById('ttt');
-        temp.style.opacity = "0.5";
+        temp.style.opacity = "0.8";
         temp.style.display = "inline-block";
-        temp.style.animation="appear 1.5s";
+        temp.style.animation = "appear 1.5s";
     },
     offset: 200
 });
@@ -59,23 +53,36 @@ var disappear = new Waypoint({
         var temp = document.getElementById('ttt');
         temp.style.opacity = "0";
         temp.style.display = "none";
-        temp.style.animation="disappear 1.5s";
+        temp.style.animation = "disappear 1.5s";
     },
     offset: -400
 });
-var aboutAppear = new Waypoint({
-    element: document.getElementById('about'),
-    handler: function () {
-        var temp=document.getElementById('about');
-        temp.style.opacity="1";
-    },
-    offset: 400
+var arr = ["about", "projects", "services", "contact"];
+arr.forEach(element => {
+    scrollAnim(element, 450, 500);
 });
-var aboutDisAppear = new Waypoint({
-    element: document.getElementById('about'),
-    handler: function () {
-        var temp=document.getElementById('about');
-        temp.style.opacity="0";
-    },
-    offset: 500
-});
+function scrollAnim(element, appear, disappear) {
+    var aboutAppear = new Waypoint({
+        element: document.getElementById(element),
+        handler: function () {
+            var temp = document.getElementById(element);
+            temp.style.opacity = "1";
+            if (element === 'about' && flag === 0) {
+                //progressCircle
+                $(function () {
+                    $('.circlechart').circlechart();
+                });
+                flag=1;
+            }
+        },
+        offset: appear
+    });
+    var aboutDisAppear = new Waypoint({
+        element: document.getElementById(element),
+        handler: function () {
+            var temp = document.getElementById(element);
+            temp.style.opacity = "0";
+        },
+        offset: disappear
+    });
+}

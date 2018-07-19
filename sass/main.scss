@@ -5,28 +5,28 @@ body {
     color: $baseColor;
     background-color: $baseBgColor;
 }
+
 ::-webkit-scrollbar {
     width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: #f1f1f1;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-    background: #888; 
+    background: #888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: #555;
 }
 
 .container {
     .header {
         background: url(../img/front-page-header.png) no-repeat;
         background-attachment: fixed;
-        background-position-y: 0%;
-        // background-position: center;
+        background-position-y: 0%; // background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         @include dimensions(900px);
@@ -35,6 +35,7 @@ body {
             @include flex(space-around);
         }
         &-top {
+            margin-top: 15px;
             @include dimensions(75px);
             @include flex(center);
             width: 90%;
@@ -55,7 +56,7 @@ body {
                         line-height: 26px;
                         font-weight: 700;
                         &:hover {
-                            color: #ffde00;
+                            color: #aaa;
                         }
                     }
                 }
@@ -64,7 +65,7 @@ body {
         &-bottom {
             margin: auto;
             text-align: center;
-            padding: 240px 0 280px 0;
+            padding: 280px 0 280px 0;
             width: 90%;
             color: #eee;
             font-size: 18px;
@@ -74,17 +75,17 @@ body {
                 line-height: 84px;
                 font-weight: 700;
                 font-family: $headingFont;
-                span{
-                    color: #ffde00;
+                span {
+                    color: #555;
                     font-size: 1.2em;
                 }
             }
-            .keys{
+            .keys {
                 text-transform: uppercase;
                 font-size: 1.1em;
             }
             p {
-                width: 750px;
+                @include dimensions(auto, 60%);
                 text-align: inherit;
                 margin: auto;
                 line-height: 26px;
@@ -96,7 +97,7 @@ body {
                 height: 63px;
                 line-height: 63px;
                 letter-spacing: 2px;
-                background: #f1d204;
+                background: #ddd;
                 color: #333;
                 margin: 0 15px;
                 padding: 0 50px;
@@ -108,65 +109,79 @@ body {
                 -o-transition: all 0.3s;
                 transition: all 0.3s;
                 min-width: 242px;
-                &:hover{
+                &:hover {
                     color: #eee;
                     background-color: #6a4d8a;
                 }
-                &:active{
+                &:active {
                     background-color: lighten($color: #6a4d8a, $amount: 20%);
                 }
             }
         }
     }
-    
-    a.scroll[href="#hhh"]{
+    a.scroll[href="#hhh"] {
         position: fixed;
-        bottom: 30px;
-        right: 30px;
+        bottom: 40px;
+        right: 40px;
         display: none;
         opacity: 0;
-        .topBtn{
+        z-index: 50;
+        .topBtn {
             display: inline-block;
-            @include dimensions(45px,45px);
+            @include dimensions(45px, 45px);
             border-radius: 50%;
             background: url(../img/up.png) no-repeat center;
             background-size: contain;
         }
     }
+    h3 {
+        margin: 0 0 55px 0;
+        color: #fff;
+        font-family: $headingFont;
+        font-size: 35px;
+    }
     .about {
-        opacity: 0;
-        transition: 0.8s;
-        @include dimensions(480px);
+        @include animOpac;
+        @include dimensions(600px);
         padding: 65px 0 85px 0;
+        background: linear-gradient(#030821, #39496f);
         text-align: center;
-        h3{
-            margin: 0 0 55px 0;
-            color: $headingColor;
-            font-family: $headingFont;
-            font-size: 35px;
-        }
-        p{
-            width: 945px;
+        
+        p {
+            color: #fff;
+            @include dimensions(auto, 60%);
             margin: auto;
             line-height: 26px;
         }
+        .skills {
+            @include flex();
+            @include dimensions(auto, 50%);
+            margin: auto;
+            margin-top: 100px;
+            .success-stroke {
+                stroke: #fff;
+            }
+            .circle-chart__background {
+                stroke: #2b1f3a;
+            }
+            .circle-chart__percent,
+            .circle-chart__subline {
+                fill: #eee;
+            }
+        }
     }
     .projects {
+        @include animOpac;
         @include dimensions(530px);
+        text-align: center;
+        padding-top:65px;
     }
     .services {
+        @include animOpac;
         @include dimensions(475px);
     }
-    .latest {
-        @include dimensions(1000px);
-    }
-    .count {
-        @include dimensions(215px);
-    }
-    .team {
-        @include dimensions(520px);
-    }
     .contact {
+        @include animOpac;
         @include dimensions(715px);
     }
     .footer {
@@ -174,8 +189,8 @@ body {
     }
 }
 
-@keyframes appear{
-    0%{
+@keyframes appear {
+    0% {
         opacity: 0;
         display: none;
     }
