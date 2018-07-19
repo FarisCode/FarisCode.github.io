@@ -14,11 +14,12 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato|Poppins:700" rel="stylesheet">
     <link rel="icon" href="img/icon.ico">
+
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
+        <div class="header parallax">
             <div class="content">
                 <div class="header-top">
                     <div class="header-top-logo">
@@ -37,7 +38,9 @@
                 </div>
             </div>
             <div class="header-bottom">
-                <h1>Syed<span>.</span>Faris<span>.</span>Ahmed</h1>
+                <h1>Syed
+                    <span>.</span>Faris
+                    <span>.</span>Ahmed</h1>
                 <!-- <p>It is never done until it is fast, responsive, and correct. But if you can’t be fast, at least be responsive. If you still can’t be responsive, at least be correct!</p> -->
                 <p class="keys">Programmer | Web Developer | Gamer</p>
                 <p>“The effort required to implement a feature is inversely proportional to how complex the customer believes
@@ -74,14 +77,36 @@
         </div>
     </div>
 
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/jquery.lineProgressbar.js"></script>
     <script src="js/jquery-scrolloffset.min.js"></script>
-    <script src="js/mcparallax.min.js"></script>
-
-
     <script>
+        function isInViewport(node) {
+            var rect = node.getBoundingClientRect()
+            return (
+                (rect.height > 0 || rect.width > 0) &&
+                rect.bottom >= 0 &&
+                rect.right >= 0 &&
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.left <= (window.innerWidth || document.documentElement.clientWidth)
+            )
+        }
+        $(window).scroll(function () {
+            var scrolled = $(window).scrollTop()
+            $('.parallax').each(function (index, element) {
+                var initY = $(this).offset().top
+                var height = $(this).height()
+                var endY = initY + $(this).height()
+
+                // Check if the element is in the viewport.
+                var visible = isInViewport(this)
+                if (visible) {
+                    var diff = scrolled - initY
+                    var ratio = Math.round((diff / height) * 100)
+                    $(this).css('background-position', 'center ' + parseInt(-(ratio * 1.5)) + 'px')
+                }
+            })
+        })
         $(function () {
             $('.scroll').scrollOffset({
                 offset: 60,

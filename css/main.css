@@ -18,7 +18,7 @@ body {
 .container .header {
   background: url(../img/front-page-header.png) no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-position-y: 0%;
   background-repeat: no-repeat;
   background-size: cover;
   height: 900px;
