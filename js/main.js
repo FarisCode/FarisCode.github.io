@@ -22,7 +22,7 @@ $(window).scroll(function () {
         if (visible) {
             var diff = scrolled - initY
             var ratio = Math.round((diff / height) * 100)
-            $(this).css('background-position', 'initial ' + parseInt(-(ratio * 1.5)) + 'px')
+            $(this).css('background-position', 'center ' + parseInt(-(ratio * 1.5)) + 'px')
         }
     })
 })
@@ -48,14 +48,14 @@ var appear = new Waypoint({
     offset: 200
 });
 var disappear = new Waypoint({
-    element: document.getElementById('hhh'),
+    element: document.getElementById('about'),
     handler: function () {
         var temp = document.getElementById('ttt');
         temp.style.opacity = "0";
         temp.style.display = "none";
         temp.style.animation = "disappear 1.5s";
     },
-    offset: -400
+    offset: 400
 });
 var arr = ["about", "projects", "services", "contact"];
 arr.forEach(element => {
@@ -86,3 +86,5 @@ function scrollAnim(element, appear, disappear) {
         offset: disappear
     });
 }
+//custom
+console.log($(window).height());

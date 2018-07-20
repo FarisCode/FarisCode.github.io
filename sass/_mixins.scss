@@ -11,7 +11,27 @@
     flex-direction: $direction;
 }
 
-@mixin animOpac{
+@mixin animOpac {
     opacity: 0;
     transition: 1s;
+}
+
+@mixin footerBG($temp) {
+    .#{$temp} {
+        background: url("../img/#{$temp}.png") no-repeat center;
+        background-size: contain;
+        transition: 0.3s;
+        &:hover::after {
+            padding: 2px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            content:"#{$temp}";
+            width: 80px;
+            position: absolute;
+            top: -25px;
+            left: -20px;
+            font-size: 14px;
+        }
+    }
 }

@@ -1,7 +1,7 @@
 body {
   font-family: "Lato", sans-serif;
   color: #8c9597;
-  background-color: #39496f; }
+  background-color: #030821; }
 
 ::-webkit-scrollbar {
   width: 10px; }
@@ -16,12 +16,14 @@ body {
   background: #555; }
 
 .container .header {
+  position: relative;
+  overflow: none;
   background: url(../img/front-page-header.png) no-repeat;
   background-attachment: fixed;
   background-position-y: 0%;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 900px;
+  height: 100vh;
   width: 100%;
   box-sizing: border-box;
   box-sizing: border-box; }
@@ -57,41 +59,83 @@ body {
           color: #fff;
           font-size: 16px;
           line-height: 26px;
-          font-weight: 700; }
+          transition: 0.5s;
+          font-weight: 700;
+          position: relative; }
           .container .header-top-nav .links a:hover {
-            color: #aaa; }
+            font-size: 1.1em; }
+            .container .header-top-nav .links a:hover::after {
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              animation: hover 0.5s;
+              content: " ";
+              height: 1px;
+              width: 50%;
+              background-color: #ddd; }
+            .container .header-top-nav .links a:hover::before {
+              position: absolute;
+              bottom: 0;
+              right: 50%;
+              animation: hover 0.5s;
+              content: " ";
+              height: 1px;
+              width: 50%;
+              background-color: #ddd; }
+        @media (max-width: 800px) {
+          .container .header-top-nav .links {
+            display: none; } }
+      .container .header-top-nav .threeLines {
+        display: none; }
+        @media (max-width: 800px) {
+          .container .header-top-nav .threeLines {
+            display: initial; } }
   .container .header-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
     margin: auto;
+    bottom: 50px;
     text-align: center;
-    padding: 280px 0 280px 0;
     width: 90%;
     color: #eee;
     font-size: 18px; }
+    @media (max-width: 1000px) {
+      .container .header-bottom {
+        font-size: 14px; } }
+    @media (max-width: 800px) {
+      .container .header-bottom {
+        font-size: 12px; } }
     .container .header-bottom h1 {
       margin: 0 0 29px 0;
-      font-size: 80px;
+      font-size: 4.4em;
       line-height: 84px;
       font-weight: 700;
       font-family: "Poppins", sans-serif; }
-      .container .header-bottom h1 span {
-        color: #555;
-        font-size: 1.2em; }
+      @media (max-width: 550px) {
+        .container .header-bottom h1 {
+          font-size: 3.5em; } }
     .container .header-bottom .keys {
       text-transform: uppercase;
       font-size: 1.1em; }
+      @media (max-width: 550px) {
+        .container .header-bottom .keys {
+          font-size: 1em; } }
     .container .header-bottom p {
+      font-size: 1em;
       height: auto;
       width: 60%;
       box-sizing: border-box;
+      max-width: 700px;
       text-align: inherit;
       margin: auto;
       line-height: 26px;
-      margin-bottom: 60px; }
+      margin-bottom: 30px; }
     .container .header-bottom a {
       text-decoration: none;
       width: auto;
-      height: 63px;
-      line-height: 63px;
+      height: 60px;
+      line-height: 60px;
       letter-spacing: 2px;
       background: #ddd;
       color: #333;
@@ -110,6 +154,12 @@ body {
         background-color: #6a4d8a; }
       .container .header-bottom a:active {
         background-color: #9d83ba; }
+      @media (max-width: 800px) {
+        .container .header-bottom a {
+          padding: 0 30px; } }
+      @media (max-width: 550px) {
+        .container .header-bottom a {
+          padding: 0 15px; } }
 .container a.scroll[href="#hhh"] {
   position: fixed;
   bottom: 40px;
@@ -130,6 +180,8 @@ body {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 35px; }
+.container .cover {
+  background: linear-gradient(#030821, #39496f); }
 .container .about {
   opacity: 0;
   transition: 1s;
@@ -137,7 +189,6 @@ body {
   width: 100%;
   box-sizing: border-box;
   padding: 65px 0 85px 0;
-  background: linear-gradient(#030821, #39496f);
   text-align: center; }
   .container .about p {
     color: #fff;
@@ -184,13 +235,101 @@ body {
   width: 100%;
   box-sizing: border-box; }
 .container .footer {
-  height: 284px;
+  padding: 0 5%;
+  text-align: center;
+  height: 100px;
   width: 100%;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: #030821; }
+  .container .footer .Facebook {
+    background: url("../img/Facebook.png") no-repeat center;
+    background-size: contain;
+    transition: 0.3s; }
+    .container .footer .Facebook:hover::after {
+      padding: 2px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      content: "Facebook";
+      width: 80px;
+      position: absolute;
+      top: -25px;
+      left: -20px;
+      font-size: 14px; }
+  .container .footer .Github {
+    background: url("../img/Github.png") no-repeat center;
+    background-size: contain;
+    transition: 0.3s; }
+    .container .footer .Github:hover::after {
+      padding: 2px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      content: "Github";
+      width: 80px;
+      position: absolute;
+      top: -25px;
+      left: -20px;
+      font-size: 14px; }
+  .container .footer .LinkedIn {
+    background: url("../img/LinkedIn.png") no-repeat center;
+    background-size: contain;
+    transition: 0.3s; }
+    .container .footer .LinkedIn:hover::after {
+      padding: 2px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      content: "LinkedIn";
+      width: 80px;
+      position: absolute;
+      top: -25px;
+      left: -20px;
+      font-size: 14px; }
+  .container .footer .Mail {
+    background: url("../img/Mail.png") no-repeat center;
+    background-size: contain;
+    transition: 0.3s; }
+    .container .footer .Mail:hover::after {
+      padding: 2px;
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 5px;
+      content: "Mail";
+      width: 80px;
+      position: absolute;
+      top: -25px;
+      left: -20px;
+      font-size: 14px; }
+  .container .footer span {
+    flex: 2;
+    min-width: 415px;
+    font-size: 14px; }
+  .container .footer .socialContent {
+    flex: 1;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row; }
+    .container .footer .socialContent .social {
+      position: relative;
+      cursor: pointer;
+      height: 40px;
+      width: 40px;
+      box-sizing: border-box; }
 
 @keyframes appear {
   0% {
     opacity: 0;
     display: none; } }
+@keyframes hover {
+  0% {
+    width: 0%; } }
 
 /*# sourceMappingURL=main.css.map */

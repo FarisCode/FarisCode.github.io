@@ -24,12 +24,14 @@ body {
 
 .container {
     .header {
+        position: relative;
+        overflow: none;
         background: url(../img/front-page-header.png) no-repeat;
         background-attachment: fixed;
         background-position-y: 0%; // background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        @include dimensions(900px);
+        @include dimensions(100vh);
         box-sizing: border-box;
         .content {
             @include flex(space-around);
@@ -54,48 +56,92 @@ body {
                         color: #fff;
                         font-size: 16px;
                         line-height: 26px;
+                        transition: 0.5s;
                         font-weight: 700;
+                        position: relative;
                         &:hover {
-                            color: #aaa;
+                            font-size: 1.1em;
+                            &::after {
+                                position: absolute;
+                                bottom: 0;
+                                left: 50%;
+                                animation: hover 0.5s;
+                                content: " ";
+                                height: 1px;
+                                width: 50%;
+                                background-color: #ddd;
+                            }
+                            &::before {
+                                position: absolute;
+                                bottom: 0;
+                                right: 50%;
+                                animation: hover 0.5s;
+                                content: " ";
+                                height: 1px;
+                                width: 50%;
+                                background-color: #ddd;
+                            }
                         }
+                    }
+                    @media (max-width:800px) {
+                        display: none;
+                    }
+                }
+                .threeLines {
+                    display: none;
+                    @media (max-width: 800px) {
+                        display: initial;
                     }
                 }
             }
         }
         &-bottom {
+            position: absolute;
+            left: 0;
+            right: 0;
             margin: auto;
+            bottom: 50px;
             text-align: center;
-            padding: 280px 0 280px 0;
             width: 90%;
             color: #eee;
             font-size: 18px;
+            @media (max-width: 1000px) {
+                font-size: 14px;
+            }
+            @media (max-width:800px) {
+                font-size: 12px;
+            }
             h1 {
                 margin: 0 0 29px 0;
-                font-size: 80px;
+                font-size: 4.4em;
                 line-height: 84px;
                 font-weight: 700;
                 font-family: $headingFont;
-                span {
-                    color: #555;
-                    font-size: 1.2em;
+                @media (max-width: 550px) {
+                    font-size: 3.5em;
                 }
             }
             .keys {
                 text-transform: uppercase;
                 font-size: 1.1em;
+                @media (max-width: 550px) {
+                    font-size: 1em;
+                }
             }
             p {
+                font-size: 1em;
                 @include dimensions(auto, 60%);
+                max-width: 700px;
                 text-align: inherit;
                 margin: auto;
                 line-height: 26px;
-                margin-bottom: 60px;
+                margin-bottom: 30px;
             }
             a {
                 text-decoration: none;
                 width: auto;
-                height: 63px;
-                line-height: 63px;
+                height: 60px;
+                line-height: 60px;
                 letter-spacing: 2px;
                 background: #ddd;
                 color: #333;
@@ -115,6 +161,12 @@ body {
                 }
                 &:active {
                     background-color: lighten($color: #6a4d8a, $amount: 20%);
+                }
+                @media (max-width:800px) {
+                    padding: 0 30px;
+                }
+                @media (max-width:550px) {
+                    padding: 0 15px;
                 }
             }
         }
@@ -140,13 +192,14 @@ body {
         font-family: $headingFont;
         font-size: 35px;
     }
+    .cover {
+        background: linear-gradient(#030821, #39496f);
+    }
     .about {
         @include animOpac;
         @include dimensions(600px);
         padding: 65px 0 85px 0;
-        background: linear-gradient(#030821, #39496f);
         text-align: center;
-        
         p {
             color: #fff;
             @include dimensions(auto, 60%);
@@ -158,6 +211,12 @@ body {
             @include dimensions(auto, 50%);
             margin: auto;
             margin-top: 100px;
+            @media (max-width: 520px) {
+                margin-top: 50px;
+            }
+            .circlechart{
+                width: 60%;
+            }
             .success-stroke {
                 stroke: #fff;
             }
@@ -174,7 +233,7 @@ body {
         @include animOpac;
         @include dimensions(530px);
         text-align: center;
-        padding-top:65px;
+        padding-top: 65px;
     }
     .services {
         @include animOpac;
@@ -185,7 +244,31 @@ body {
         @include dimensions(715px);
     }
     .footer {
-        @include dimensions(284px);
+        padding: 0 5%;
+        text-align: center;
+        @include dimensions(100px);
+        @include flex(space-around);
+        flex-wrap: wrap;
+        background-color: #030821;
+        @include footerBG(Facebook);
+        @include footerBG(Github);
+        @include footerBG(LinkedIn);
+        @include footerBG(Mail);
+        span {
+            flex: 2;
+            min-width: 415px;
+            font-size: 14px;
+        }
+        .socialContent {
+            flex: 1;
+            padding: 0 5%;
+            @include flex(space-around);
+            .social {
+                position: relative;
+                cursor: pointer;
+                @include dimensions(40px, 40px);
+            }
+        }
     }
 }
 
@@ -193,5 +276,11 @@ body {
     0% {
         opacity: 0;
         display: none;
+    }
+}
+
+@keyframes hover {
+    0% {
+        width: 0%;
     }
 }

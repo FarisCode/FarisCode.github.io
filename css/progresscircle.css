@@ -13,10 +13,9 @@
  */
 
 .circle-chart {
-  width: 150px;
-  height: 150px;
+  width: 70%;
+  height: 70%;
 }
-
 .circle-chart__circle {
   stroke: #00acc1;
   stroke-width: 2;
