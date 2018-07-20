@@ -1,3 +1,6 @@
+* {
+  overflow: none; }
+
 body {
   font-family: "Lato", sans-serif;
   color: #8c9597;
@@ -179,7 +182,8 @@ body {
   margin: 0 0 55px 0;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  font-size: 35px; }
+  font-size: 35px;
+  text-align: center; }
 .container .cover {
   background: linear-gradient(#030821, #39496f); }
 .container .about {
@@ -207,6 +211,11 @@ body {
     box-sizing: border-box;
     margin: auto;
     margin-top: 100px; }
+    @media (max-width: 520px) {
+      .container .about .skills {
+        margin-top: 50px; } }
+    .container .about .skills .circlechart {
+      width: 60%; }
     .container .about .skills .success-stroke {
       stroke: #fff; }
     .container .about .skills .circle-chart__background {
@@ -223,12 +232,14 @@ body {
   text-align: center;
   padding-top: 65px; }
 .container .services {
+  text-align: center;
   opacity: 0;
   transition: 1s;
   height: 475px;
   width: 100%;
   box-sizing: border-box; }
 .container .contact {
+  text-align: center;
   opacity: 0;
   transition: 1s;
   height: 715px;
@@ -238,7 +249,7 @@ body {
   padding: 0 5%;
   text-align: center;
   height: 100px;
-  width: 100%;
+  width: 100vw;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -310,6 +321,9 @@ body {
     flex: 2;
     min-width: 415px;
     font-size: 14px; }
+    @media (max-width: 510px) {
+      .container .footer span .extra {
+        display: none; } }
   .container .footer .socialContent {
     flex: 1;
     padding: 0 5%;

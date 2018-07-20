@@ -1,5 +1,8 @@
 @import 'variables';
 @import 'mixins';
+*{
+    overflow: none;
+}
 body {
     font-family: $baseFont;
     color: $baseColor;
@@ -191,6 +194,8 @@ body {
         color: #fff;
         font-family: $headingFont;
         font-size: 35px;
+        text-align: center;
+
     }
     .cover {
         background: linear-gradient(#030821, #39496f);
@@ -236,17 +241,19 @@ body {
         padding-top: 65px;
     }
     .services {
+        text-align: center;
         @include animOpac;
         @include dimensions(475px);
     }
     .contact {
+        text-align: center;
         @include animOpac;
         @include dimensions(715px);
     }
     .footer {
         padding: 0 5%;
         text-align: center;
-        @include dimensions(100px);
+        @include dimensions(100px,100vw);
         @include flex(space-around);
         flex-wrap: wrap;
         background-color: #030821;
@@ -258,6 +265,11 @@ body {
             flex: 2;
             min-width: 415px;
             font-size: 14px;
+            .extra{
+                @media (max-width:510px) {
+                    display: none;
+                }
+            }
         }
         .socialContent {
             flex: 1;
