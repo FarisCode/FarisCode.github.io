@@ -87,4 +87,15 @@ function scrollAnim(element, appear, disappear) {
     });
 }
 //custom
-console.log($(window).height());
+var x = 1;
+
+$("#dropDown").click(function(){
+    if(x == 0){
+        $("#link").removeClass("drop");
+        x = 1;
+    }else{
+        $("#link").addClass("drop");
+        x = 0;
+    }
+    
+});

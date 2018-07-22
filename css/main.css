@@ -1,5 +1,6 @@
 * {
-  overflow: none; }
+  overflow: none;
+  -webkit-user-drag: none; }
 
 body {
   font-family: "Lato", sans-serif;
@@ -21,9 +22,9 @@ body {
 .container .header {
   position: relative;
   overflow: none;
-  background: url(../img/front-page-header.png) no-repeat;
+  background: url(../img/front-page-header.png) no-repeat, #030821;
   background-attachment: fixed;
-  background-position-y: 0%;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -49,6 +50,10 @@ body {
     .container .header-top-logo {
       flex: 1; }
     .container .header-top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-direction: row;
       flex: 2; }
       .container .header-top-nav .links {
         display: flex;
@@ -88,11 +93,34 @@ body {
         @media (max-width: 800px) {
           .container .header-top-nav .links {
             display: none; } }
+      @media (max-width: 800px) {
+        .container .header-top-nav .drop {
+          display: block;
+          overflow: hidden;
+          width: 100%;
+          padding: 15px 10px;
+          background-color: #030821;
+          text-align: center;
+          position: absolute;
+          right: 0;
+          top: 100px;
+          z-index: 100;
+          transition: 1s;
+          animation-name: hover;
+          animation-duration: 1s; }
+          .container .header-top-nav .drop a {
+            display: block; } }
       .container .header-top-nav .threeLines {
-        display: none; }
+        display: none;
+        cursor: pointer; }
         @media (max-width: 800px) {
           .container .header-top-nav .threeLines {
-            display: initial; } }
+            display: block;
+            background: url(../img/menu.png) no-repeat center;
+            background-size: contain;
+            height: 50px;
+            width: 50px;
+            box-sizing: border-box; } }
   .container .header-bottom {
     position: absolute;
     left: 0;
@@ -165,7 +193,7 @@ body {
           padding: 0 15px; } }
 .container a.scroll[href="#hhh"] {
   position: fixed;
-  bottom: 40px;
+  bottom: 25px;
   right: 40px;
   display: none;
   opacity: 0;
@@ -231,6 +259,164 @@ body {
   box-sizing: border-box;
   text-align: center;
   padding-top: 65px; }
+  .container .projects .work {
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row; }
+    .container .projects .work .one {
+      cursor: pointer;
+      position: relative;
+      background: url("../img/one.webp") no-repeat center;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      -webkit-transition: background-image 0.5s ease-in-out;
+      transition: background-image 0.5s ease-in-out; }
+      .container .projects .work .one:hover {
+        background: linear-gradient(rgba(255, 255, 255, 0), black), url("../img/one.webp") no-repeat center;
+        background-size: cover, cover; }
+      .container .projects .work .one span {
+        display: none;
+        color: #fff;
+        font-size: 1.3em;
+        z-index: 10; }
+      .container .projects .work .one:hover > span {
+        display: inline-block;
+        margin-top: 40%; }
+        .container .projects .work .one:hover > span::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          animation: hover 0.5s;
+          content: " ";
+          height: 1px;
+          width: 50%;
+          background-color: #ddd; }
+        .container .projects .work .one:hover > span::before {
+          position: absolute;
+          bottom: 0;
+          right: 50%;
+          animation: hover 0.5s;
+          content: " ";
+          height: 1px;
+          width: 50%;
+          background-color: #ddd; }
+    .container .projects .work .two {
+      cursor: pointer;
+      position: relative;
+      background: url("../img/two.webp") no-repeat center;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      -webkit-transition: background-image 0.5s ease-in-out;
+      transition: background-image 0.5s ease-in-out; }
+      .container .projects .work .two:hover {
+        background: linear-gradient(rgba(255, 255, 255, 0), black), url("../img/two.webp") no-repeat center;
+        background-size: cover, cover; }
+      .container .projects .work .two span {
+        display: none;
+        color: #fff;
+        font-size: 1.3em;
+        z-index: 10; }
+      .container .projects .work .two:hover > span {
+        display: inline-block;
+        margin-top: 40%; }
+        .container .projects .work .two:hover > span::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          animation: hover 0.5s;
+          content: " ";
+          height: 1px;
+          width: 50%;
+          background-color: #ddd; }
+        .container .projects .work .two:hover > span::before {
+          position: absolute;
+          bottom: 0;
+          right: 50%;
+          animation: hover 0.5s;
+          content: " ";
+          height: 1px;
+          width: 50%;
+          background-color: #ddd; }
+    .container .projects .work .three {
+      cursor: pointer;
+      position: relative;
+      background: url("../img/three.webp") no-repeat center;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      -webkit-transition: background-image 0.5s ease-in-out;
+      transition: background-image 0.5s ease-in-out; }
+      .container .projects .work .three:hover {
+        background: linear-gradient(rgba(255, 255, 255, 0), black), url("../img/three.webp") no-repeat center;
+        background-size: cover, cover; }
+      .container .projects .work .three span {
+        display: none;
+        color: #fff;
+        font-size: 1.3em;
+        z-index: 10; }
+      .container .projects .work .three:hover > span {
+        display: inline-block;
+        margin-top: 40%; }
+        .container .projects .work .three:hover > span::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          animation: hover 0.5s;
+          content: " ";
+          height: 1px;
+          width: 50%;
+          background-color: #ddd; }
+        .container .projects .work .three:hover > span::before {
+          position: absolute;
+          bottom: 0;
+          right: 50%;
+          animation: hover 0.5s;
+          content: " ";
+          height: 1px;
+          width: 50%;
+          background-color: #ddd; }
+    .container .projects .work .four {
+      cursor: pointer;
+      position: relative;
+      background: url("../img/four.png") no-repeat center;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      -webkit-transition: background-image 0.5s ease-in-out;
+      transition: background-image 0.5s ease-in-out; }
+      .container .projects .work .four:hover {
+        background: linear-gradient(rgba(255, 255, 255, 0), black), url("../img/four.png") no-repeat center;
+        background-size: cover, cover; }
+      .container .projects .work .four span {
+        display: none;
+        color: #fff;
+        font-size: 1.3em;
+        z-index: 10; }
+      .container .projects .work .four:hover > span {
+        display: inline-block;
+        margin-top: 40%; }
+        .container .projects .work .four:hover > span::after {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          animation: hover 0.5s;
+          content: " ";
+          height: 1px;
+          width: 50%;
+          background-color: #ddd; }
+        .container .projects .work .four:hover > span::before {
+          position: absolute;
+          bottom: 0;
+          right: 50%;
+          animation: hover 0.5s;
+          content: " ";
+          height: 1px;
+          width: 50%;
+          background-color: #ddd; }
 .container .services {
   text-align: center;
   opacity: 0;
@@ -249,7 +435,7 @@ body {
   padding: 0 5%;
   text-align: center;
   height: 100px;
-  width: 100vw;
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -318,7 +504,7 @@ body {
       left: -20px;
       font-size: 14px; }
   .container .footer span {
-    flex: 2;
+    flex: 1.5;
     min-width: 415px;
     font-size: 14px; }
     @media (max-width: 510px) {
@@ -345,5 +531,8 @@ body {
 @keyframes hover {
   0% {
     width: 0%; } }
+@keyframes drop {
+  0% {
+    height: 0%; } }
 
 /*# sourceMappingURL=main.css.map */
