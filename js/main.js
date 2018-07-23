@@ -97,5 +97,12 @@ $("#dropDown").click(function(){
         $("#link").addClass("drop");
         x = 0;
     }
-    
 });
+function send(){
+    var flag=0;
+    var name=document.getElementById("name");
+    var email=document.getElementById("email");
+    if(name.value===null){
+        flag=1;
+    }
+}
