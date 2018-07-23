@@ -467,7 +467,11 @@ body {
   .container .contact > h3 {
     margin-bottom: 35px; }
   .container .contact > p {
-    text-align: center; }
+    text-align: center;
+    margin: auto; }
+    @media (max-width: 800px) {
+      .container .contact > p {
+        width: 90%; } }
   .container .contact > form {
     width: 80%;
     margin: auto;
@@ -485,7 +489,7 @@ body {
         color: #eee;
         background-color: #6a4d8a; }
       .container .contact > form > .btn a:active {
-        background-color: #9d83ba; }
+        background-color: #8362a8; }
     .container .contact > form label {
       display: block;
       width: 30%; }

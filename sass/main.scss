@@ -306,10 +306,13 @@ body {
         }
         >p{
             text-align: center;
+            margin: auto;
+            @media (max-width: 800px) {
+                width: 90%;
+            }
         }
         
         >form{
-            
             width: 80%;
             margin: auto;
             margin-top: 60px;
@@ -326,7 +329,7 @@ body {
                         background-color: #6a4d8a;
                     }
                     &:active {
-                        background-color: lighten($color: #6a4d8a, $amount: 20%);
+                        background-color: lighten($color: #6a4d8a, $amount: 10%);
                     }
                 }
             }
